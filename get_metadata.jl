@@ -35,6 +35,8 @@ for idx = eachindex(ds.MRI_ID)
     ds.sagittal_slice_thickness[idx], ds.sagittal_voxel_size[idx], _ = get_metadata(sagittals)
 end
 
+CSV.Write("output.csv", ds)
+
 # This is to later get link on the MRI_ID with the actual data
 # lookup = @pipe CSV.File("data.csv") |> DataFrame(_)
 # for row = eachrow(lookup)
